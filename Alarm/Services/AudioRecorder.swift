@@ -34,34 +34,9 @@ protocol AudioRecorderType {
     var isRecording: Bool { get }
 }
 
-protocol RecordLibrary {
-    var fileManager: FileManager { get }
-    
-    func generateUrl(for name: String) -> URL?
-}
-
-class DocumentsRecordLibrary: RecordLibrary {
-    
-    var fileManager: FileManager
-    
-    private let fileExtension = ".m4a"
-    
-    init(fileManager: FileManager = .default) {
-        self.fileManager = fileManager
-    }
-    
-    private func documentsDirectory() -> URL? {
-        let paths = fileManager.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
-    }
-    
-    func generateUrl(for name: String) -> URL? {
-        return documentsDirectory()?.appendingPathComponent(name + fileExtension)
-    }
-    
-}
-
 class AudioRecorder: NSObject, AudioRecorderType {
+    
+    // MARK: - Public methods
     
     private(set) var recordLibrary: RecordLibrary
     
@@ -74,9 +49,13 @@ class AudioRecorder: NSObject, AudioRecorderType {
         return avRecorder?.isRecording ?? false
     }
     
+    // MARK: - Initialize
+    
     init(recordLibrary: RecordLibrary) {
         self.recordLibrary = recordLibrary
     }
+    
+    // MARK: - Public methods
     
     func record() {
         if state.value.canResume() {
@@ -106,6 +85,8 @@ class AudioRecorder: NSObject, AudioRecorderType {
         state.value = .stop
     }
     
+    // MARK: - Private methods
+    
     private func configure() {
         do {
             let settings = [
@@ -128,6 +109,8 @@ class AudioRecorder: NSObject, AudioRecorderType {
         }
     }
 }
+
+// MARK: - AVAudioRecorderDelegate
 
 extension AudioRecorder: AVAudioRecorderDelegate {
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {

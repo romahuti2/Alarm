@@ -15,7 +15,7 @@ final class DatePickerViewController: UIViewController {
     var maximumDate: Date?
     var selectedDate: Date?
     
-    var viewModel: PickerViewModelType!
+    var viewModel: DatePickerViewModelType!
     
     lazy var textField: UITextField = {
         let field: UITextField = UITextField()
@@ -100,7 +100,6 @@ final class DatePickerViewController: UIViewController {
     }
     
     // MARK: - IBActions
-    
     
     @objc private func doneClick() {
         viewModel.doneBarButtonTaped()

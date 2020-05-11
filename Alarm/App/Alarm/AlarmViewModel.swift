@@ -51,6 +51,8 @@ protocol AlarmViewModelType {
 
 class AlarmViewModel: AlarmViewModelType {
     
+    // MARK: Properties
+    
     private(set) var alarmSettings: Observable<AlarmSettings>
     var parameters: Observable<[Parameter]> = Observable([])
     var alarmTime: Observable<String> = Observable("")
@@ -75,6 +77,8 @@ class AlarmViewModel: AlarmViewModelType {
     var scheduler: TaskScheduler
     var notificationScheduler: NotificationScheduler
     
+    // MARK: Initialize
+    
     init(settings: AlarmSettings, audioService: AudioService, scheduler: TaskScheduler, notificationSheduler: NotificationScheduler) {
         self.alarmSettings = Observable(settings)
         self.audioService = audioService
@@ -82,6 +86,7 @@ class AlarmViewModel: AlarmViewModelType {
         self.notificationScheduler = notificationSheduler
     }
     
+    // MARK: Public methods
     
     func transform() {
         playButtonTitle = Observable(audioState.canPause() ? "Pause" : "Play")
@@ -132,6 +137,8 @@ class AlarmViewModel: AlarmViewModelType {
         default: ()
         }
     }
+    
+    // MARK: Private methods
     
     private func startFlow() {
         let sleepTime = TimeInterval(alarmSettings.value.sleepTime.minutes() * 60)
@@ -185,14 +192,18 @@ class AlarmViewModel: AlarmViewModelType {
     
 }
 
-extension AlarmViewModel: PickerViewDelegate {
+// MARK: DatePickerDelegate
+
+extension AlarmViewModel: DatePickerDelegate {
     
     func onDimiss() { }
     
-    func onDateSelected(_ pickerModel: PickerViewModel, _ date: Date) {
+    func onDateSelected(_ pickerModel: DatePickerViewModel, _ date: Date) {
         alarmSettings.value.updateAlertTime(date)
     }
 }
+
+// MARK: AudioServiceDelegate
 
 extension AlarmViewModel: AudioServiceDelegate {
     

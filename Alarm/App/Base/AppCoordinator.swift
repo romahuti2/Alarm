@@ -25,19 +25,5 @@ class AppCoordinator: BaseCoordinator {
         coordinator.navigationController = self.navigationController
         self.start(coordinator: coordinator)
     }
-    
-    private func showDatePicker() {
-        
-    }
-}
- 
-protocol SignInListener {
-    func didSignIn()
-}
- 
-extension AppCoordinator: SignInListener {
-    func didSignIn() {
-        print("Signed In")
-        // TODO: Navigate to Dashboard
-    }
+
 }

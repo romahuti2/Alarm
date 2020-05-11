@@ -33,7 +33,7 @@ protocol AudioService {
     var delegate: AudioServiceDelegate? { get set }
     var player: AudioPlayerType { get }
     var recorder: AudioRecorderType { get }
-
+    
     func executeCommand(_ command: AudioCommand)
 }
 
@@ -64,6 +64,9 @@ enum AudioCommand {
 }
 
 class BoosterAudioService: NSObject, AudioService {
+    
+    // MARK: - Properties
+    
     var state: AudioServiceState = .idle
     var player: AudioPlayerType
     var recorder: AudioRecorderType
@@ -71,6 +74,8 @@ class BoosterAudioService: NSObject, AudioService {
     weak var delegate: AudioServiceDelegate?
     let session = AVAudioSession.sharedInstance()
     var sessionState: AudioSessionState = .notConfigured
+    
+    // MARK: - Initialize
     
     init(player: AudioPlayerType, recorder: AudioRecorderType, delegate: AudioServiceDelegate? = nil) {
         self.player = player
@@ -98,57 +103,7 @@ class BoosterAudioService: NSObject, AudioService {
         NotificationCenter.default.removeObserver(self)
     }
     
-    private func activateSession(for category: AVAudioSession.Category = .playAndRecord) {
-        do {
-            try session.setCategory(category, options: [])
-            self.sessionState = .ready
-            
-            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
-            self.sessionState = .active
-        } catch let error as NSError {
-            self.sessionState = .error
-            self.delegate?.audioService(self, error: error)
-            self.state = .idle
-            print("could not active session. err:\(error.localizedDescription)")
-        }
-    }
-    
-    private func deactivateSession() {
-        do {
-            try AVAudioSession.sharedInstance().setActive(false)
-            self.sessionState = .notConfigured
-        } catch let error as NSError {
-            self.sessionState = .error
-            self.delegate?.audioService(self, error: error)
-            self.state = .idle
-            print("could not deactive session. err:\(error.localizedDescription)")
-        }
-    }
-    
-    func hasPermission() -> Bool {
-        return session.recordPermission == .granted
-    }
-    
-    private func requestPermission() {
-        switch session.recordPermission {
-        case .denied:
-            self.delegate?.audioService(self, error: AudioError.noPermission)
-            self.sessionState = .noPermission
-            break
-        case .granted:
-            self.startRecording()
-            break
-        case .undetermined:
-            session.requestRecordPermission { [unowned self] (granted) in
-                if granted {
-                    self.startRecording()
-                } else {
-                    self.delegate?.audioService(self, error: AudioError.noPermission)
-                    self.sessionState = .noPermission
-                }
-            }
-        }
-    }
+    // MARK: - Public methods
     
     func executeCommand(_ command: AudioCommand) {
         switch command {
@@ -182,6 +137,60 @@ class BoosterAudioService: NSObject, AudioService {
                 player.play()
                 self.state = .playing
             }
+        }
+    }
+    
+    // MARK: - Private methods
+    
+    private func hasPermission() -> Bool {
+        return session.recordPermission == .granted
+    }
+    private func activateSession(for category: AVAudioSession.Category = .playAndRecord) {
+        do {
+            try session.setCategory(category, options: [])
+            self.sessionState = .ready
+            
+            try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+            self.sessionState = .active
+        } catch let error as NSError {
+            self.sessionState = .error
+            self.delegate?.audioService(self, error: error)
+            self.state = .idle
+            print("could not active session. err:\(error.localizedDescription)")
+        }
+    }
+    
+    private func deactivateSession() {
+        do {
+            try AVAudioSession.sharedInstance().setActive(false)
+            self.sessionState = .notConfigured
+        } catch let error as NSError {
+            self.sessionState = .error
+            self.delegate?.audioService(self, error: error)
+            self.state = .idle
+            print("could not deactive session. err:\(error.localizedDescription)")
+        }
+    }
+    
+    private func requestPermission() {
+        switch session.recordPermission {
+        case .denied:
+            self.delegate?.audioService(self, error: AudioError.noPermission)
+            self.sessionState = .noPermission
+            break
+        case .granted:
+            self.startRecording()
+            break
+        case .undetermined:
+            session.requestRecordPermission { [unowned self] (granted) in
+                if granted {
+                    self.startRecording()
+                } else {
+                    self.delegate?.audioService(self, error: AudioError.noPermission)
+                    self.sessionState = .noPermission
+                }
+            }
+        @unknown default: ()
         }
     }
     

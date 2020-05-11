@@ -8,17 +8,6 @@
 
 import UIKit
 
-enum ParameterType: Int {
-    case alarmTime = 0
-    case sleepTime
-}
-
-struct Parameter {
-    var type: ParameterType
-    var key: String
-    var value: String
-}
-
 class ParameterTableCell: UITableViewCell {
     
     @IBOutlet private weak var keyLabel: UILabel!
@@ -29,10 +18,4 @@ class ParameterTableCell: UITableViewCell {
         self.valueLabel.text = parameter.value
     }
     
-}
-
-extension UIView {
-    static var className: String {
-        return String(describing: self)
-    }
 }

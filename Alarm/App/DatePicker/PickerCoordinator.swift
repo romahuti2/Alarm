@@ -8,16 +8,12 @@
 
 import Foundation
 
-protocol PickerCoordinatorDelegate: class {
-    func dimissPicker()
-}
-
-class PickerCoordinator: BaseCoordinator {
+class DatePickerCoordinator: BaseCoordinator {
     
     private var selectedDate: Date
-    private var delegate: PickerViewDelegate?
+    private var delegate: DatePickerDelegate?
     
-    init(selectedDate: Date? = Date(), delegate: PickerViewDelegate? = nil) {
+    init(selectedDate: Date? = Date(), delegate: DatePickerDelegate? = nil) {
         self.selectedDate = selectedDate ?? Date()
         self.delegate = delegate
         super.init()
@@ -26,7 +22,7 @@ class PickerCoordinator: BaseCoordinator {
     override func start() {
         let viewController = DatePickerViewController()
         
-        let viewModel = PickerViewModel(selectedDate: selectedDate, delegate: self)
+        let viewModel = DatePickerViewModel(selectedDate: selectedDate, delegate: self)
         viewController.viewModel = viewModel
         viewController.modalPresentationStyle = .overCurrentContext
         
@@ -35,8 +31,8 @@ class PickerCoordinator: BaseCoordinator {
 
 }
 
-extension PickerCoordinator: PickerViewDelegate {
-    func onDateSelected(_ pickerModel: PickerViewModel, _ date: Date) {
+extension DatePickerCoordinator: DatePickerDelegate {
+    func onDateSelected(_ pickerModel: DatePickerViewModel, _ date: Date) {
         delegate?.onDateSelected(pickerModel, date)
         navigationController.topViewController?.dismiss(animated: true, completion: nil)
     }

@@ -18,11 +18,15 @@
 		F0CC70A22469769C00CCB52A /* AlarmSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC70A12469769C00CCB52A /* AlarmSettings.swift */; };
 		F0CC70A4246976BC00CCB52A /* SleepTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC70A3246976BC00CCB52A /* SleepTime.swift */; };
 		F0CC70A62469B3F200CCB52A /* TimerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC70A52469B3F200CCB52A /* TimerFormatter.swift */; };
-		F0EA6A9824669D9800B652FC /* PickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6A9724669D9800B652FC /* PickerController.swift */; };
+		F0CC70AF2469C11300CCB52A /* Paramater.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC70AE2469C11300CCB52A /* Paramater.swift */; };
+		F0CC70B12469C14000CCB52A /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC70B02469C14000CCB52A /* UIView+Extensions.swift */; };
+		F0CC70B32469C20C00CCB52A /* RecorderLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC70B22469C20C00CCB52A /* RecorderLibrary.swift */; };
+		F0CC70B52469C2D200CCB52A /* SleepAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CC70B42469C2D200CCB52A /* SleepAlertAction.swift */; };
+		F0EA6A9824669D9800B652FC /* DatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6A9724669D9800B652FC /* DatePickerViewController.swift */; };
 		F0EA6A9C2466AAD700B652FC /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6A9B2466AAD700B652FC /* Observable.swift */; };
 		F0EA6A9E2466AB2300B652FC /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6A9D2466AB2300B652FC /* AlarmViewController.swift */; };
 		F0EA6AA12466B05400B652FC /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6AA02466B05400B652FC /* AlarmViewModel.swift */; };
-		F0EA6AA62466B8F200B652FC /* PickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6AA52466B8F200B652FC /* PickerViewModel.swift */; };
+		F0EA6AA62466B8F200B652FC /* DatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6AA52466B8F200B652FC /* DatePickerViewModel.swift */; };
 		F0EA6AA82466BC3000B652FC /* PickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EA6AA72466BC3000B652FC /* PickerCoordinator.swift */; };
 		F0F3EA2024642B1D00947305 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F3EA1F24642B1D00947305 /* AppDelegate.swift */; };
 		F0F3EA2724642B1D00947305 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0F3EA2524642B1D00947305 /* Main.storyboard */; };
@@ -57,11 +61,15 @@
 		F0CC70A12469769C00CCB52A /* AlarmSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSettings.swift; sourceTree = "<group>"; };
 		F0CC70A3246976BC00CCB52A /* SleepTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTime.swift; sourceTree = "<group>"; };
 		F0CC70A52469B3F200CCB52A /* TimerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerFormatter.swift; sourceTree = "<group>"; };
-		F0EA6A9724669D9800B652FC /* PickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerController.swift; sourceTree = "<group>"; };
+		F0CC70AE2469C11300CCB52A /* Paramater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paramater.swift; sourceTree = "<group>"; };
+		F0CC70B02469C14000CCB52A /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		F0CC70B22469C20C00CCB52A /* RecorderLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecorderLibrary.swift; sourceTree = "<group>"; };
+		F0CC70B42469C2D200CCB52A /* SleepAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepAlertAction.swift; sourceTree = "<group>"; };
+		F0EA6A9724669D9800B652FC /* DatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewController.swift; sourceTree = "<group>"; };
 		F0EA6A9B2466AAD700B652FC /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		F0EA6A9D2466AB2300B652FC /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
 		F0EA6AA02466B05400B652FC /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
-		F0EA6AA52466B8F200B652FC /* PickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewModel.swift; sourceTree = "<group>"; };
+		F0EA6AA52466B8F200B652FC /* DatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerViewModel.swift; sourceTree = "<group>"; };
 		F0EA6AA72466BC3000B652FC /* PickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCoordinator.swift; sourceTree = "<group>"; };
 		F0F3EA1C24642B1D00947305 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F3EA1F24642B1D00947305 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +118,7 @@
 			children = (
 				F0F3EA2524642B1D00947305 /* Main.storyboard */,
 				F0161A862466D211002692DC /* Base */,
-				F0EA6AA42466B8D900B652FC /* Picker */,
+				F0EA6AA42466B8D900B652FC /* DatePicker */,
 				F0EA6A9F2466B04800B652FC /* Alarm */,
 			);
 			path = App;
@@ -120,10 +128,10 @@
 			isa = PBXGroup;
 			children = (
 				F0F3EA46246549CC00947305 /* AudioManager.swift */,
-				F0CC70A3246976BC00CCB52A /* SleepTime.swift */,
 				F01BC26D24683FCB0092740B /* NotificationScheduler.swift */,
 				F01BC26F246840CA0092740B /* AudioPlayer.swift */,
 				F078336C246862510034BD92 /* AudioRecorder.swift */,
+				F0CC70B22469C20C00CCB52A /* RecorderLibrary.swift */,
 				F0CC709F246940AC00CCB52A /* TaskScheduler.swift */,
 			);
 			path = Services;
@@ -142,6 +150,8 @@
 			isa = PBXGroup;
 			children = (
 				F0161A8D24670AA0002692DC /* BindableUIDatePicker.swift */,
+				F0CC70B02469C14000CCB52A /* UIView+Extensions.swift */,
+				F0CC70B42469C2D200CCB52A /* SleepAlertAction.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -167,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				F0CC70A12469769C00CCB52A /* AlarmSettings.swift */,
+				F0CC70A3246976BC00CCB52A /* SleepTime.swift */,
+				F0CC70AE2469C11300CCB52A /* Paramater.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,14 +204,14 @@
 			path = Alarm;
 			sourceTree = "<group>";
 		};
-		F0EA6AA42466B8D900B652FC /* Picker */ = {
+		F0EA6AA42466B8D900B652FC /* DatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				F0EA6A9724669D9800B652FC /* PickerController.swift */,
-				F0EA6AA52466B8F200B652FC /* PickerViewModel.swift */,
+				F0EA6A9724669D9800B652FC /* DatePickerViewController.swift */,
+				F0EA6AA52466B8F200B652FC /* DatePickerViewModel.swift */,
 				F0EA6AA72466BC3000B652FC /* PickerCoordinator.swift */,
 			);
-			path = Picker;
+			path = DatePicker;
 			sourceTree = "<group>";
 		};
 		F0F3EA1324642B1D00947305 = {
@@ -347,7 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0EA6A9824669D9800B652FC /* PickerController.swift in Sources */,
+				F0EA6A9824669D9800B652FC /* DatePickerViewController.swift in Sources */,
 				F0EA6AA12466B05400B652FC /* AlarmViewModel.swift in Sources */,
 				F0161A882466D218002692DC /* Coordinator.swift in Sources */,
 				F0F3EA4D24655B9000947305 /* ParameterTableCell.swift in Sources */,
@@ -355,16 +367,20 @@
 				F0CC70A0246940AC00CCB52A /* TaskScheduler.swift in Sources */,
 				F0EA6A9C2466AAD700B652FC /* Observable.swift in Sources */,
 				F0F3EA47246549CC00947305 /* AudioManager.swift in Sources */,
+				F0CC70B52469C2D200CCB52A /* SleepAlertAction.swift in Sources */,
 				F0161A8C2466D437002692DC /* AlarmCoordinator.swift in Sources */,
 				F0CC70A62469B3F200CCB52A /* TimerFormatter.swift in Sources */,
+				F0CC70B12469C14000CCB52A /* UIView+Extensions.swift in Sources */,
 				F0EA6AA82466BC3000B652FC /* PickerCoordinator.swift in Sources */,
 				F078336D246862510034BD92 /* AudioRecorder.swift in Sources */,
+				F0CC70AF2469C11300CCB52A /* Paramater.swift in Sources */,
 				F0F3EA2024642B1D00947305 /* AppDelegate.swift in Sources */,
 				F01BC26E24683FCB0092740B /* NotificationScheduler.swift in Sources */,
 				F0EA6A9E2466AB2300B652FC /* AlarmViewController.swift in Sources */,
+				F0CC70B32469C20C00CCB52A /* RecorderLibrary.swift in Sources */,
 				F0CC70A22469769C00CCB52A /* AlarmSettings.swift in Sources */,
 				F0CC70A4246976BC00CCB52A /* SleepTime.swift in Sources */,
-				F0EA6AA62466B8F200B652FC /* PickerViewModel.swift in Sources */,
+				F0EA6AA62466B8F200B652FC /* DatePickerViewModel.swift in Sources */,
 				F01BC270246840CA0092740B /* AudioPlayer.swift in Sources */,
 				F0161A8E24670AA0002692DC /* BindableUIDatePicker.swift in Sources */,
 			);

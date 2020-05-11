@@ -32,6 +32,10 @@ class NotificationScheduler {
         }
     }
     
+    func cancelPendingNotifications() {
+        center.removeAllPendingNotificationRequests()
+    }
+    
     private func requestPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) { granted, error in
             if granted == true && error == nil {
@@ -54,9 +58,5 @@ class NotificationScheduler {
 
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         center.add(request)
-    }
-    
-    func cancelPendingNotifications() {
-        center.removeAllPendingNotificationRequests()
     }
 }

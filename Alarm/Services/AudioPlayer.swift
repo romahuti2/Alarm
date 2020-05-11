@@ -23,9 +23,16 @@ protocol AudioPlayerType {
 
 class AudioPlayer: NSObject, AudioPlayerType {
     
+    // MARK: - Properties
+    
     private var avPlayer: AVAudioPlayer?
     
     var errorHandler: ((Error?) -> ())?
+    var isPlaying: Bool {
+        return avPlayer?.isPlaying ?? false
+    }
+    
+    // MARK: - Public methods
     
     func setTrack(_ url: URL) {
         do {
@@ -58,10 +65,9 @@ class AudioPlayer: NSObject, AudioPlayerType {
         }
     }
     
-    var isPlaying: Bool {
-        return avPlayer?.isPlaying ?? false
-    }
 }
+
+// MARK: - AVAudioPlayerDelegate
 
 extension AudioPlayer: AVAudioPlayerDelegate {
     

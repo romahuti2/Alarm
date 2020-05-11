@@ -10,13 +10,17 @@ import UIKit
 
 class AlarmViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var stateLabel: UILabel!
-    @IBOutlet weak var playButton: UIButton!
+    // MARK: Properties
+    
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var stateLabel: UILabel!
+    @IBOutlet private weak var playButton: UIButton!
     
     var viewModel: AlarmViewModelType!
     
     private var parameters: [Parameter] = []
+    
+    // MARK: Lifycycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,8 @@ class AlarmViewController: UIViewController {
         tableView.tableFooterView = UIView()
         setupBindings()
     }
+    
+    // MARK: Public methods
     
     func setupBindings() {
         viewModel.transform()
@@ -39,11 +45,15 @@ class AlarmViewController: UIViewController {
         }
     }
     
+    // MARK: IBAction
+    
     @IBAction func playPause(_ sender: UIButton) {
         viewModel.playPause()
     }
     
 }
+
+// MARK: UITableViewDataSource
 
 extension AlarmViewController: UITableViewDataSource {
     
@@ -58,6 +68,8 @@ extension AlarmViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: UITableViewDelegate
 
 extension AlarmViewController: UITableViewDelegate {
     

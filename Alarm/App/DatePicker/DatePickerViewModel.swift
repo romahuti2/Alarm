@@ -8,31 +8,37 @@
 
 import Foundation
 
-protocol PickerViewDelegate: class {
-    func onDateSelected(_ pickerModel: PickerViewModel, _ date: Date)
+protocol DatePickerDelegate: class {
+    func onDateSelected(_ pickerModel: DatePickerViewModel, _ date: Date)
     func onDimiss()
 }
 
-protocol PickerViewModelType {
+protocol DatePickerViewModelType {
     var selectedDate: Observable<Date> { get }
     var isPickerHidden: Observable<Bool> { get }
-    var delegate: PickerViewDelegate? { get set }
+    var delegate: DatePickerDelegate? { get set }
     
     func doneBarButtonTaped()
     func dismiss()
 }
     
-class PickerViewModel: PickerViewModelType {
+class DatePickerViewModel: DatePickerViewModelType {
     
-    init(selectedDate: Date?, delegate: PickerViewDelegate? = nil) {
-        self.selectedDate = Observable(selectedDate ?? Date())
-        self.delegate = delegate
-    }
+    // MARK: - Properties
     
     var selectedDate: Observable<Date>
     var isPickerHidden: Observable<Bool> = Observable.init(false)
     var animation: Observable<Bool> = Observable.init(true)
-    weak var delegate: PickerViewDelegate?
+    weak var delegate: DatePickerDelegate?
+    
+    // MARK: - Initialize
+    
+    init(selectedDate: Date?, delegate: DatePickerDelegate? = nil) {
+        self.selectedDate = Observable(selectedDate ?? Date())
+        self.delegate = delegate
+    }
+    
+    // MARK: - Public methods
     
     func doneBarButtonTaped() {
         delegate?.onDateSelected(self, selectedDate.value)

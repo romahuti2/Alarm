@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol AlarmCoordinatorDelegate {
-    
-}
-
 class AlarmCoordinator: BaseCoordinator {
     
     override func start() {
@@ -49,8 +45,8 @@ class AlarmCoordinator: BaseCoordinator {
         self.navigationController.setViewControllers([viewController], animated: true)
     }
     
-    private func showDatePicker(selectedDate: Date?, delegate: PickerViewDelegate?) {
-        let datePickerCoordinator = PickerCoordinator(selectedDate: selectedDate, delegate: delegate)
+    private func showDatePicker(selectedDate: Date?, delegate: DatePickerDelegate?) {
+        let datePickerCoordinator = DatePickerCoordinator(selectedDate: selectedDate, delegate: delegate)
         datePickerCoordinator.parentCoordinator = self
         datePickerCoordinator.navigationController = navigationController
         
@@ -72,11 +68,6 @@ class AlarmCoordinator: BaseCoordinator {
         actionSheet.addAction(cancel)
         navigationController.topViewController?.present(actionSheet, animated: true, completion: nil)
     }
-    
-}
-
-class SleepAlertAction: UIAlertAction {
-    var sleepTime: SleepTime?
     
 }
 
